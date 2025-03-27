@@ -1,0 +1,1 @@
+Here is the voice samples from Joe, Matt, and Devotion that will be used to to train the model and classify/authenticate for access to the system.
