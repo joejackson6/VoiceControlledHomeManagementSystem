@@ -1,0 +1,21 @@
+import subprocess
+import sys
+
+required = [
+    "torch",
+    "torchaudio",
+    "speechbrain",
+    "sounddevice",
+    "soundfile"
+]
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+for pkg in required:
+    try:
+        __import__(pkg)
+        print(f"{pkg} is installed.")
+    except ImportError:
+        print(f"{pkg} is missing. Installing...")
+        install(pkg)
