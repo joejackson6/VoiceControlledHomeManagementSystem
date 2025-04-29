@@ -1,2 +1,0 @@
-- need 5 voice samples from each person (~10-20 seconds each)
-- 
