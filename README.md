@@ -23,8 +23,15 @@ sudo apt install libportaudio2 libportaudiocpp0 portaudio19-dev
 python check_dependencies.py
 
 # Step 7:
-Add your voice data to the VoiceDate folder
+Add your voice data to the VoiceDate folder (optional)
 
 # Step 8:
 python setup_voice.py
+
+# Step 9: Install files for pi listening
+sudo apt update
+sudo apt install flac
+sudo apt update
+sudo apt install espeak
+
 
