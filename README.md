@@ -21,3 +21,10 @@ sudo apt install libportaudio2 libportaudiocpp0 portaudio19-dev
 
 # Step 6:
 python check_dependencies.py
+
+# Step 7:
+Add your voice data to the VoiceDate folder
+
+# Step 8:
+python setup_voice.py
+
