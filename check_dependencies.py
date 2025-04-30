@@ -9,7 +9,8 @@ required = [
     "soundfile",
     "scikit-learn",
     "pyttsx3",
-    "SpeechRecognition"
+    "SpeechRecognition",
+    "pytz"
 ]
 
 def install(package):

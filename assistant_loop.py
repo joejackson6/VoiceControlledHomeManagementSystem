@@ -6,12 +6,20 @@ import torchaudio
 import pyttsx3
 import speech_recognition as sr
 from speechbrain.inference import SpeakerRecognition
+from datetime import datetime
+import pytz
+import joblib
 
 RECORD_SECONDS = 7
 SAMPLE_RATE = 16000
 THRESHOLD = 0.30
 EMBEDDINGS_PATH = "embeddings.pt"
 AUDIO_PATH = "test_auth.wav"
+
+intent_model = joblib.load("intent_model.pkl")
+
+def classify_command(command):
+    return intent_model.predict([command])[0]
 
 def speak(text):
     os.system(f'espeak -ven+m3 -s150 "{text}" --stdout | aplay')
@@ -64,15 +72,31 @@ def live_authenticate(filename, verification, embeddings):
         return most_likely
 
 def respond(text):
-    if "weather" in text:
+    intent = classify_command(text)
+    print(f"Intent: {intent}")
+
+    if intent == "get_weather":
         reply = "I can't check the weather yet, but I'm working on it."
-    elif "your name" in text:
-        reply = "I'm your assistant."
-    elif "time" in text:
-        from datetime import datetime
-        reply = "The current time is " + datetime.now().strftime("%H:%M")
+    elif intent == "get_time":
+        tz = pytz.timezone("US/Eastern")
+        reply = f"The time is {datetime.now(tz).strftime('%I:%M %p')} Eastern."
+    elif intent == "greeting":
+        reply = "Hello there!"
+    elif intent == "identity":
+        reply = "I was created by Joe."
+    elif intent == "turn_on_light":
+        reply = "Turning on the light."
+        turn_on_light()
+    elif intent == "turn_off_light":
+        reply = "Turning off the light."
+        turn_off_light()
+    elif intent == "thanks":
+        reply = "You're welcome!"
+    elif intent == "goodbye":
+        reply = "Goodbye!"
     else:
-        reply = f"You said: {text}"
+        reply = "I cannot do what you said."
+
     print("Assistant:", reply)
     speak(reply)
 
@@ -92,9 +116,12 @@ def listen_and_authenticate():
             record_audio_file(AUDIO_PATH)
 
             text = transcribe_audio(AUDIO_PATH)
-            print(f"Transcription: {text}")
+            if not text:
+                print("No speech detected. Waiting again...")
+                continue  # skip loop without speaking
 
-            if text and text.lower().startswith("hey homer"):
+            print(f"Transcription: {text}")
+            if text.lower().startswith("hey homer"):
                 command = text[len("hey homer"):].strip()
                 user = live_authenticate(AUDIO_PATH, verification, embeddings)
                 if user:
@@ -108,6 +135,13 @@ def listen_and_authenticate():
         except KeyboardInterrupt:
             print("Exiting...")
             break
+
+def turn_on_light():
+    print("[Simulated] Light turned on.")
+
+def turn_off_light():
+    print("[Simulated] Light turned off.")
+            
 
 if __name__ == "__main__":
     listen_and_authenticate()

@@ -1,0 +1,90 @@
+training_data = [
+    # TIME
+    ("what time is it", "get_time"),
+    ("tell me the time", "get_time"),
+    ("do you know the time", "get_time"),
+    ("can you tell the time", "get_time"),
+    ("current time please", "get_time"),
+    ("give me the time", "get_time"),
+    ("what's the time now", "get_time"),
+    ("time", "get_time"),
+    ("what time is it right now", "get_time"),
+
+    # WEATHER
+    ("how's the weather", "get_weather"),
+    ("what's the forecast", "get_weather"),
+    ("is it going to rain", "get_weather"),
+    ("tell me the weather", "get_weather"),
+    ("weather report", "get_weather"),
+    ("what's the weather like", "get_weather"),
+    ("will it be sunny", "get_weather"),
+    ("check the weather", "get_weather"),
+    ("is it hot outside", "get_weather"),
+    ("weather right now", "get_weather"),
+    ("what's it like outside", "get_weather"),
+    ("is it cold today", "get_weather"),
+
+    # LIGHT CONTROL
+    ("turn on the light", "turn_on_light"),
+    ("switch on the bulb", "turn_on_light"),
+    ("light on", "turn_on_light"),
+    ("can you turn the light on", "turn_on_light"),
+    ("power on the lamp", "turn_on_light"),
+    ("activate the light", "turn_on_light"),
+    ("illuminate the room", "turn_on_light"),
+    ("enable the light", "turn_on_light"),
+
+    ("turn off the light", "turn_off_light"),
+    ("switch off the bulb", "turn_off_light"),
+    ("light off", "turn_off_light"),
+    ("can you turn the light off", "turn_off_light"),
+    ("power down the lamp", "turn_off_light"),
+    ("disable the light", "turn_off_light"),
+    ("kill the lights", "turn_off_light"),
+
+    # GREETINGS
+    ("hello", "greeting"),
+    ("hi", "greeting"),
+    ("hey", "greeting"),
+    ("howdy", "greeting"),
+    ("yo", "greeting"),
+    ("good morning", "greeting"),
+    ("good afternoon", "greeting"),
+    ("good evening", "greeting"),
+    ("greetings", "greeting"),
+    ("sup", "greeting"),
+    ("what's up", "greeting"),
+    ("hiya", "greeting"),
+
+    # IDENTITY
+    ("what's your name", "identity"),
+    ("who are you", "identity"),
+    ("tell me your name", "identity"),
+    ("do you have a name", "identity"),
+    ("what should I call you", "identity"),
+    ("who made you", "identity"),
+    ("who created you", "identity"),
+    ("who built you", "identity"),
+    ("who programmed you", "identity"),
+
+    # THANKS / FAREWELL
+    ("thanks", "thanks"),
+    ("thank you", "thanks"),
+    ("i appreciate it", "thanks"),
+    ("much appreciated", "thanks"),
+
+    ("goodbye", "goodbye"),
+    ("bye", "goodbye"),
+    ("see you later", "goodbye"),
+    ("talk to you soon", "goodbye"),
+    ("peace out", "goodbye"),
+
+    # FALLBACK / UNKNOWN
+    ("can you cook dinner", "unknown"),
+    ("what's your favorite color", "unknown"),
+    ("do you believe in ghosts", "unknown"),
+    ("tell me a joke", "unknown"),
+    ("sing me a song", "unknown"),
+    ("can you drive a car", "unknown")
+]
+
