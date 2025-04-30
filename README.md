@@ -3,7 +3,8 @@
 # Dependencies
 
 # Step 1: Install python3-venv if it's missing
-sudo apt update
+sudo apt update 
+
 sudo apt install python3-venv
 
 # Step 2: Create a virtual environment
@@ -16,22 +17,18 @@ source venv/bin/activate
 pip install --upgrade pip
 
 # Step 5: 
-sudo apt update
 sudo apt install libportaudio2 libportaudiocpp0 portaudio19-dev
 
 # Step 6:
 python check_dependencies.py
 
-# Step 7:
-Add your voice data to the VoiceDate folder (optional)
+# Step 7 (Optional):
+Add your voice data to the VoiceDate folder
 
 # Step 8:
 python setup_voice.py
 
 # Step 9: Install files for pi listening
-sudo apt update
-sudo apt install flac
-sudo apt update
-sudo apt install espeak
+sudo apt install flac espeak
 
 
