@@ -6,7 +6,10 @@ required = [
     "torchaudio",
     "speechbrain",
     "sounddevice",
-    "soundfile"
+    "soundfile",
+    "scikit-learn",
+    "pyttsx3",
+    "SpeechRecognition"
 ]
 
 def install(package):
