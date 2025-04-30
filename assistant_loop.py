@@ -44,7 +44,7 @@ def transcribe_audio(filename):
         return r.recognize_google(audio)
     except sr.UnknownValueError:
         print("Could not understand audio.")
-        speak("Sorry, I didn't catch that.")
+        #speak("Sorry, I didn't catch that.")
     except sr.RequestError as e:
         print(f"Speech Recognition error: {e}")
         speak("Speech recognition is not available.")
@@ -131,7 +131,8 @@ def listen_and_authenticate():
                 else:
                     speak("Sorry, I don't recognize you.")
             else:
-                speak("Waiting for the phrase 'Hey Homer'")
+                #speak("Waiting for the phrase 'Hey Homer'")
+                continue
         except KeyboardInterrupt:
             print("Exiting...")
             break
