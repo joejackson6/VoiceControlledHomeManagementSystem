@@ -9,12 +9,20 @@ from speechbrain.inference import SpeakerRecognition
 from datetime import datetime
 import pytz
 import joblib
+from yeelight import Bulb
+
 
 RECORD_SECONDS = 7
 SAMPLE_RATE = 16000
 THRESHOLD = 0.30
 EMBEDDINGS_PATH = "embeddings.pt"
 AUDIO_PATH = "test_auth.wav"
+
+# Replace with Yeelight IP address
+YEELIGHT_IP = "192.168.137.116" # Replace with your Yeelight IP address
+
+# Connect to the bulb
+bulb = Bulb(YEELIGHT_IP)
 
 intent_model = joblib.load("intent_model.pkl")
 
@@ -137,12 +145,23 @@ def listen_and_authenticate():
             print("Exiting...")
             break
 
+
+
 def turn_on_light():
-    print("[Simulated] Light turned on.")
+    try:
+        bulb.turn_on()
+        print("Light turned ON.")
+    except Exception as e:
+        print(f"Error turning on light: {e}")
 
 def turn_off_light():
-    print("[Simulated] Light turned off.")
-            
+    try:
+        bulb.turn_off()
+        print("Light turned OFF.")
+    except Exception as e:
+        print(f"Error turning off light: {e}")
+
+
 
 if __name__ == "__main__":
     listen_and_authenticate()

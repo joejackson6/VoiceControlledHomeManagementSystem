@@ -10,7 +10,9 @@ required = [
     "scikit-learn",
     "pyttsx3",
     "SpeechRecognition",
-    "pytz"
+    "pytz",
+    "yeelight"
+
 ]
 
 def install(package):
