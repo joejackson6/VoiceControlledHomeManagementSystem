@@ -31,4 +31,7 @@ python setup_voice.py
 # Step 9: Install files for pi listening
 sudo apt install flac espeak
 
+# Step 10: Run the device!
+python assistant_loop.py
+
 
